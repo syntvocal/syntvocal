@@ -1,6 +1,6 @@
 
 #####################################################
-#
+#v
 # Au demarrage du programme, on regarde sur quelle adresse IP
 # le programme s'execute. Si c'est sur 192.168.10.50, alors
 # on est sur le Raspberry et la fonction scan() va retourner
