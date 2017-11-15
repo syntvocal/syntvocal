@@ -4,20 +4,23 @@ GPIO.setmode(GPIO.BCM)
 #
 #  MINI CLAVIER 4 TOUCHES POUR DEBUTER
 #
-#      A-----E--------------GPIO4            
+#      A-----E------<-------GPIO4            
 #      |     |              Blanc
 #      |     |
-#      B-----F--------------GPIO22
+#      B-----F------<-------GPIO22
 #      |     |              Rouge
 #      |     |   
-#      |   GPIO27  
+#      V     V   
+#      |     |   
+#      |     |   
+#      |   GPIO21  
 #      |    Violet
 #   GPIO17 
 #    vert    
 #
 
-GPIO.setup(17, GPIO.IN   # toutes les colonnes initialisees en entree
-GPIO.setup(27, GPIO.IN)
+GPIO.setup(17, GPIO.IN)   # toutes les colonnes initialisees en entree
+GPIO.setup(21, GPIO.IN)
 
 GPIO.setup(4, GPIO.OUT) # toutes les lignes initialisees en sortie
 GPIO.setup(22, GPIO.OUT)
@@ -29,9 +32,9 @@ clv={}         # On definit la variable tableau clv (vide pour l'instant)
 
 # on remplit les cases du tableau
 clv[4,17]="A"
-clv[4,27]="E"
+clv[4,21]="E"
 clv[22,17]="B" 
-clv[22,27]="F"
+clv[22,21]="F"
 
 res="rien"     # on initialise la valeur du resultat (si aucune touche
                # n'est appuyee)
@@ -44,7 +47,7 @@ for x in [4,22]:   # boucle sur les sorties (les lignes)
 	# la boucle exterieure est prete: toutes les lignes sont a 1 sauf celle
 	# correspondant a x
         
-    for y in [17,27]:   #pour chaque ligne: boucle sur les entrees (les colonnes)
+    for y in [17,21]:   #pour chaque ligne: boucle sur les entrees (les colonnes)
         ligne=GPIO.input(y) #la variable "ligne" lit la valeur de la ligne y
         if ligne==1:  # si on lit 1, c'est que le bouton de la colonne est appuye
             col=x   # on enregistre ligne et colonne du bouton qui est appuye
@@ -53,12 +56,12 @@ for x in [4,22]:   # boucle sur les sorties (les lignes)
            # print "lig="+str(y)
            # print str(clv[x,y])
        
-            res= str(clv[x,y])  # si e résultat n'est pas "rien", on lit dans la
+            res= str(clv[x,y])  # si e resultat n'est pas "rien", on lit dans la
                                 # la table "clv" la touche enfoncee
 
 print res   # apres la sortie complete des 2 boucles, on affiche le resultat
 
 
 
-GPIO.cleanup() # on remet GPIO a zéro (si on veut changer les modes entrees/sorties plus tard)
+GPIO.cleanup() # on remet GPIO a zero (si on veut changer les modes entrees/sorties plus tard)
  
