@@ -1,31 +1,9 @@
 
-Skip to content
-This repository
 
-    Pull requests
-    Issues
-    Marketplace
-    Explore
 
-    @vyledar
 
-1
-0
 
-    0
 
-syntvocal/syntvocal
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Insights
-Settings
-syntvocal/test_clav.py
-69f1164 6 hours ago
-@bernardgibert bernardgibert creation du fichier test_clav.py
-90 lines (81 sloc) 3.9 KB
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
@@ -114,19 +92,3 @@ if test_E=="N":
 
 
 GPIO.cleanup() # on remet GPIO a zero (si on veut changer les modes entrees/sorties plus tard)
- 
-
-    © 2017 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    API
-    Training
-    Shop
-    Blog
-    About
-
